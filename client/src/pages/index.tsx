@@ -9,7 +9,7 @@ const Pages = () => {
   return (
     <Routes>
       <Route path="/" element={<Launches />} />
-      <Route path="/flight:id" element={<Launch />} />
+      <Route path="/launch/:id" element={<Launch />} />
     </Routes>
   );
 };

@@ -3,11 +3,19 @@ import React from "react";
 import styled from "styled-components";
 // components
 import Card from "./Card";
+// types
+import { Data } from "../utils/types";
 
-const Grid = () => {
+type TProps = {
+  data: Data[];
+};
+
+const Grid: React.FC<TProps> = ({ data }) => {
   return (
     <Container>
-      <Card data={item} />
+      {data.map((item, index) => (
+        <Card {...item} key={index} />
+      ))}
     </Container>
   );
 };
@@ -16,7 +24,6 @@ export default Grid;
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, minmax(20rem 1fr));
-  column-gap: 1rem;
-  row-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  gap: 2rem;
 `;

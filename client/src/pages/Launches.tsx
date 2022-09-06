@@ -1,23 +1,15 @@
 import React from "react";
+// apollo client
+import { useQuery } from "@apollo/client";
+// query
+import { LAUNCHES_QUERY } from "../utils/queries";
 //styled components
 import styled from "styled-components";
-// apollo client
-import { useQuery, gql } from "@apollo/client";
-//react router
-import { Link } from "react-router-dom";
-
-const LAUNCHES_QUERY = gql`
-  query LaunchesQuery {
-    launchesPast(limit: 10) {
-      mission_name
-      launch_date_local
-    }
-  }
-`;
+//components
+import Grid from "../components/Grid";
 
 const Flights = () => {
   const { loading, error, data } = useQuery(LAUNCHES_QUERY);
-  console.log(data);
 
   if (loading) return <p>Loading...!</p>;
   if (error) return <p>Error :(</p>;
@@ -27,7 +19,7 @@ const Flights = () => {
       <Title>
         <h1>SpaceX Flights</h1>
       </Title>
-      <Grid data={data} />
+      <Grid data={data.launchesPast} />
     </Layout>
   );
 };
@@ -35,13 +27,15 @@ const Flights = () => {
 export default Flights;
 
 const Layout = styled.div`
-  max-width: 80%;
+  width: 95%;
+  max-width: 120rem;
   margin: 0 auto;
 
-  padding-top: 4rem;
+  padding: 4rem 0;
 `;
 const Title = styled.div`
   text-align: center;
+  margin-bottom: 4rem;
 
   h1 {
     font-size: 4rem;
