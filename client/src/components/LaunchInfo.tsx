@@ -9,7 +9,6 @@ import {
 import styled from "styled-components";
 
 type Launch = {
-    
   details: string;
   launch_date_local: string;
   launch_success: boolean;
