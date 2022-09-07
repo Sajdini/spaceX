@@ -4,7 +4,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Title } from "../utils/mutuals";
 
-const Input = () => {
+type Props = {
+  id: number;
+};
+
+const Input: React.FC<Props> = ({ id }) => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
 
@@ -14,6 +18,16 @@ const Input = () => {
       alert("Please fill all information ");
       return;
     }
+    fetch("http://localhost:4000/comments/new", {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({ name, comment, id }),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res));
   };
 
   return (

@@ -1,5 +1,11 @@
 {
-  "name": "",
-  "id": null,
-  "comment": ""
+  "comments": [
+    {},
+    {},
+    {
+      "name": "Samir",
+      "comment": "Lets hope this works",
+      "id": 105
+    }
+  ]
 }

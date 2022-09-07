@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import Input from "./Input";
-const SideBar = () => {
+type Props = {
+  id: number;
+};
+
+const SideBar: React.FC<Props> = ({ id }) => {
   return (
     <Container>
-      <Input />
+      <Input id={id} />
     </Container>
   );
 };

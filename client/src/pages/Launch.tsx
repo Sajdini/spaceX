@@ -14,17 +14,19 @@ import SideBar from "../components/SideBar";
 
 const Launch = () => {
   const { id } = useParams();
+  const idNumber = Number(id);
   const { loading, error, data } = useQuery(LAUNCH_QUERY, {
-    variables: { id: Number(id) },
+    variables: { id: idNumber },
   });
 
+  
   if (loading) return <p>Loading...!</p>;
   if (error) return <p>Error :(</p>;
 
   return (
     <GridLayout>
       <Main {...data.launch} />
-      <SideBar />
+      <SideBar id={idNumber} />
     </GridLayout>
   );
 };
