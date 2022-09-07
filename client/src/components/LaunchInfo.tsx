@@ -53,6 +53,7 @@ const LaunchInfo: React.FC<Launch> = ({
             <h3>Launch place : {launch_site.site_name_long}</h3>
           </ListItem>
         </InfoList>
+
         <Links>
           {links.article_link && (
             <p>
@@ -68,13 +69,13 @@ const LaunchInfo: React.FC<Launch> = ({
             </p>
           )}
         </Links>
+        <ImageHolder>
+          <img src={links.mission_patch} alt={mission_name} />
+        </ImageHolder>
         <Paragraph>
           <p>{details}</p>
         </Paragraph>
       </div>
-      <ImageHolder>
-        <img src={links.mission_patch} alt={mission_name} />
-      </ImageHolder>
     </Container>
   );
 };
@@ -103,9 +104,15 @@ const ImageHolder = styled.div`
   max-height: 15rem;
   right: 2px;
   top: 2px;
+
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  @media (max-width: 61.25em) {
+    position: relative;
+    margin: auto;
   }
 `;

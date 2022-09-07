@@ -19,7 +19,6 @@ const Launch = () => {
     variables: { id: idNumber },
   });
 
-  
   if (loading) return <p>Loading...!</p>;
   if (error) return <p>Error :(</p>;
 
@@ -37,4 +36,9 @@ const GridLayout = styled(Layout)`
   display: grid;
   grid-template-columns: 70fr 30fr;
   grid-column-gap: 2rem;
+
+  @media (max-width: 50em) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 3rem;
+  }
 `;

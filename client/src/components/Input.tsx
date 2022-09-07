@@ -1,35 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 
 // styled components
 import styled from "styled-components";
 import { Title } from "../utils/mutuals";
 
 type Props = {
-  id: number;
+  name: string;
+  comment: string;
+  submitHandler: (e: React.FormEvent) => void;
+  setName: (name: string) => void;
+  setComment: (comment: string) => void;
 };
 
-const Input: React.FC<Props> = ({ id }) => {
-  const [name, setName] = useState("");
-  const [comment, setComment] = useState("");
-
-  const submitHandler = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name || !comment) {
-      alert("Please fill all information ");
-      return;
-    }
-    fetch("http://localhost:4000/comments/new", {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify({ name, comment, id }),
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res));
-  };
-
+const Input: React.FC<Props> = ({
+  submitHandler,
+  name,
+  comment,
+  setName,
+  setComment,
+}) => {
   return (
     <FormContainer>
       <Title>
@@ -67,7 +56,7 @@ const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
+  margin-bottom: 1rem;
   textarea {
     border: none;
     border-radius: 8px;
