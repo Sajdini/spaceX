@@ -1,4 +1,4 @@
-import {gql } from '@apollo/client'
+import { gql } from "@apollo/client";
 
 export const LAUNCH_QUERY = gql`
   query LaunchQuery($id: ID!) {
@@ -6,8 +6,15 @@ export const LAUNCH_QUERY = gql`
       details
       launch_date_local
       launch_success
-      launch_year
       mission_name
+      launch_site {
+        site_name_long
+      }
+      links {
+        video_link
+        mission_patch
+        article_link
+      }
       rocket {
         rocket_name
         rocket {

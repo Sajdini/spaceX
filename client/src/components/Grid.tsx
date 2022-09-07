@@ -4,13 +4,13 @@ import styled from "styled-components";
 // components
 import Card from "./Card";
 // types
-import { Data } from "../utils/types";
+import { Launches } from "../utils/types";
 
-type TProps = {
-  data: Data[];
+type Props = {
+  data: Launches[];
 };
 
-const Grid: React.FC<TProps> = ({ data }) => {
+const Grid: React.FC<Props> = ({ data }) => {
   return (
     <Container>
       {data.map((item, index) => (

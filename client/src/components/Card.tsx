@@ -1,16 +1,13 @@
 import React from "react";
 //styled components
+//
 import styled from "styled-components";
 // types
-import { Data } from "../utils/types";
+import { Launches, StyleProps } from "../utils/types";
 //
 import { Link } from "react-router-dom";
 
-type StyleProps = {
-  status: boolean;
-};
-
-const Card: React.FC<Data> = ({
+const Card: React.FC<Launches> = ({
   mission_name,
   launch_date_local,
   launch_success,

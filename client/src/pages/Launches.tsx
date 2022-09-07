@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 // query
 import { LAUNCHES_QUERY } from "../utils/queries";
 //styled components
-import styled from "styled-components";
+import { Layout, Title } from "../utils/mutuals";
 //components
 import Grid from "../components/Grid";
 
@@ -25,20 +25,3 @@ const Flights = () => {
 };
 
 export default Flights;
-
-const Layout = styled.div`
-  width: 95%;
-  max-width: 120rem;
-  margin: 0 auto;
-
-  padding: 4rem 0;
-`;
-const Title = styled.div`
-  text-align: center;
-  margin-bottom: 4rem;
-
-  h1 {
-    font-size: 4rem;
-    margin: 0;
-  }
-`;
