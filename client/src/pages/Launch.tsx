@@ -1,6 +1,6 @@
 import React from "react";
 //react router
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 // apollo
 import { useQuery } from "@apollo/client";
 // query
@@ -11,6 +11,7 @@ import { Layout } from "../utils/mutuals";
 //components
 import Main from "../components/Main";
 import SideBar from "../components/SideBar";
+
 
 const Launch = () => {
   const { id } = useParams();

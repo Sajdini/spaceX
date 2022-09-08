@@ -1,4 +1,5 @@
 import React from "react";
+// styled mutual
 import {
   InfoList,
   ListItem,
@@ -6,22 +7,10 @@ import {
   LeftAlignTitle,
   Paragraph,
 } from "../utils/mutuals";
+//styled
 import styled from "styled-components";
-
-type Launch = {
-  details: string;
-  launch_date_local: string;
-  launch_success: boolean;
-  mission_name: string;
-  launch_site: {
-    site_name_long: string;
-  };
-  links: {
-    video_link: string;
-    mission_patch: string;
-    article_link: string;
-  };
-};
+//types
+import { Launch } from "../utils/types";
 
 const LaunchInfo: React.FC<Launch> = ({
   mission_name,
@@ -31,6 +20,7 @@ const LaunchInfo: React.FC<Launch> = ({
   launch_site,
   links,
 }) => {
+  const time = new Date(launch_date_local).toString().split("G")[0];
   return (
     <Container>
       <div>
@@ -39,7 +29,7 @@ const LaunchInfo: React.FC<Launch> = ({
         </LeftAlignTitle>
         <InfoList>
           <ListItem>
-            <h3>Date and Time Launched : {launch_date_local}</h3>
+            <h3>Date and Time Launched : {time}</h3>
           </ListItem>
           <ListItem>
             <h3>

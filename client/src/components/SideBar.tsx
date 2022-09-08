@@ -6,7 +6,6 @@ import Input from "./Input";
 import Comments from "./Comments";
 // date formater
 
-
 type Props = {
   id: number;
 };
@@ -15,7 +14,6 @@ const SideBar: React.FC<Props> = ({ id }) => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
   const [reload, setReload] = useState(false);
-
 
   const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,10 +28,9 @@ const SideBar: React.FC<Props> = ({ id }) => {
           "Content-Type": "application/json",
         },
         method: "POST",
-        body: JSON.stringify({ name, comment, id}),
+        body: JSON.stringify({ name, comment, id }),
       });
       const data = await response.json();
-      console.log(data);
     } catch (err) {
       alert(err);
     }

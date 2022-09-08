@@ -29,7 +29,7 @@ export const LAUNCH_QUERY = gql`
 
 export const LAUNCHES_QUERY = gql`
   query LaunchesQuery {
-    launchesPast(limit: 10) {
+    launchesPast(limit: 12) {
       mission_name
       launch_date_local
       launch_success

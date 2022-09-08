@@ -47,7 +47,7 @@ const Comments: React.FC<Props> = ({ id, reload }) => {
               <NameAndDate>
                 <h3>{item.name} </h3> <span>{item.date}</span>
               </NameAndDate>
-              <p>' {item.comment} '</p>
+              <p>'{item.comment}'</p>
             </li>
           );
         })}
@@ -74,7 +74,7 @@ const CommentSection = styled.div`
     flex-direction: column;
     padding: 0.6rem 0;
     gap: 0.3rem;
-
+    position: relative;
     p {
       background-color: #fff;
       padding: 0.3rem;
@@ -84,6 +84,24 @@ const CommentSection = styled.div`
       color: #444;
       font-style: italic;
       font-weight: 300;
+    }
+    svg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1.2rem;
+      height: 1.2rem;
+      display: none;
+      transition: all 300ms;
+      cursor: pointer;
+      :hover {
+        transform: scale(130%);
+      }
+    }
+    :hover {
+      svg {
+        display: block;
+      }
     }
   }
 `;

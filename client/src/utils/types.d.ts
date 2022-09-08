@@ -43,3 +43,19 @@ export type InputType = {
   name: string;
   comment: string;
 };
+
+
+export type Launch = {
+  details: string;
+  launch_date_local: string;
+  launch_success: boolean;
+  mission_name: string;
+  launch_site: {
+    site_name_long: string;
+  };
+  links: {
+    video_link: string;
+    mission_patch: string;
+    article_link: string;
+  };
+};
